@@ -19,12 +19,13 @@
         </div>
         <div class="col-md-5 offset-md-1 form ">
           <h3>Sign Up</h3>
-          <form > 
+          <form @submit="SignUp"> 
             <div class="form-group">
               <input
                 type="text"
                 class="form-control text-center"
                 placeholder="Enter username"
+                v-model="user.username"
               />
             </div>
             <div class="form-group">
@@ -32,6 +33,7 @@
                 type="password"
                 class="form-control text-center"
                 placeholder="Password"
+                v-model="user.password"
               />
             </div>
             <button type="submit" class="btn btn-primary  btn-lg btn-block">Sign Up</button>
@@ -47,8 +49,34 @@
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex';
+import router from '../../router'
+
 export default {
-  name: "SignIn"
+  name: "SignIn",
+  data:function(){
+    return {
+      user:{
+        username:'',
+        password:''
+      }
+    }
+  },
+  methods:{
+    ...mapActions(["signUp"]),
+    SignUp(){
+      this.signUp(this.user);
+      if(this.getIsSignUpSuccess)
+      {
+        router.push("/")
+      }
+      else
+      {
+        console.log('error')
+      }
+    }
+  },
+  computed:mapGetters(["getIsSignUpSuccess"]),
 };
 </script>
 <style lang="scss" scoped>
