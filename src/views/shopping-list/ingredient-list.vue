@@ -1,0 +1,77 @@
+<template>
+  <div class="ingrendient-list">
+    <div class="container mt-5">
+      <div class="tbl-header">
+            <h1>Ingredient</h1>
+            <button class="increase-font">
+                <font-awesome-icon icon="plus"/>
+            </button>
+      </div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Ingrendient</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="ingredient in getIngredient" :key="ingredient.id">
+            <td>{{ingredient.id}}</td>
+            <td>{{ingredient.Name}}</td>
+            <td>{{ingredient.Quantity}}</td>
+            <td class="actions">
+              <button>
+                <font-awesome-icon icon="edit" />
+              </button>
+              <button>
+                <font-awesome-icon icon="trash-alt" />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script>
+import {mapGetters,mapActions} from 'vuex';
+
+export default {
+  name: "IngredientList",
+  data:function(){
+    return {
+      ingredients:[],
+    }
+  },
+  methods:{
+    ...mapActions(["fetchIngredient"])
+  },
+  computed:mapGetters(["getIngredient"]),
+  created(){
+    this.fetchIngredient()
+  } 
+};
+</script>
+<style lang="scss" scoped>
+.ingrendient-list {
+  .tbl-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .increase-font{
+    font-size:30px;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+      button {
+      background: none;
+      border: none;
+      color: rgb(28, 50, 124);
+    }
+}
+</style>
