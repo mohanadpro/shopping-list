@@ -1,29 +1,24 @@
 <template>
   <div class="ingrendient-list">
     <div class="container mt-5">
-      <div class="tbl-header">
-            <h1>Recipes</h1>
-            <button class="increase-font">
-                <font-awesome-icon icon="plus"/>
-            </button>
-      </div>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Desciption</th>
-            <th scope="col">Image</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="recipe in getRecipes" :key="recipe.id">
-            <td>{{recipe.id}}</td>
-            <td>{{recipe.Name}}</td>
-            <td>{{recipe.Desciption}}</td>
-            <td>{{recipe.image}}</td>
-            <td class="actions">
+      <div class="row">
+      <div class="col-md-4" v-for="recipe in getRecipes" :key="recipe.id">
+            <div class="card" style="width: 18rem;">
+              <div class="card-image">
+                <!-- :src="recipe.image" -->
+              <img class="card-img-top" src="../../assets/food1.jpg" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{recipe.Name}}</h5>
+                <p class="card-text card-paragraph">{{recipe.desciption}}</p>
+              </div>
+              <div class="card-gredient">
+              <ul class="list-group list-group-flush" v-for="ingredient in recipe.ingredients" :key="ingredient.Name">
+                <li class="list-group-item">{{ ingredient.Name }} || {{ingredient.quantity}}</li>
+              </ul>
+              </div>
+
+              <div class="card-body">
               <button>
                 <font-awesome-icon icon="edit" />
               </button>
@@ -33,10 +28,13 @@
             <button>
                 <font-awesome-icon icon="info" />
               </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                          <button class="increase-font">
+                <font-awesome-icon icon="plus"/>
+            </button>
+              </div>
+            </div>
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,12 +55,24 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ingrendient-list {
-  .tbl-header{
-    display: flex;
-    justify-content: space-between;
+
+  .card{
+    margin-bottom:1rem;
   }
-  .increase-font{
-    font-size:30px;
+  .card-image{
+    z-index:2;
+    height:200px;
+  }
+  .card-paragraph{
+    height:100px;
+    overflow-x:auto;
+  }
+  .card-gredient{
+    transform: rotateY(180deg);
+    position:absolute;
+    height:200px;
+    overflow-x:auto;
+    width:100%
   }
   .actions {
     display: flex;

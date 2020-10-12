@@ -3,7 +3,7 @@
             "id": 1,
             "Name": "Bamity",
             "desciption": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
-            "image": "Grizzly bear",
+            "image": "../../assets/food2.jpg" ,
             "ingredients": [
                   {
                         "Name":"Stringtough","quantity":1
@@ -14,7 +14,7 @@
             "id": 2,
             "Name": "Tampflex",
             "desciption": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
-            "image": "Rhea, greater",
+            "image": "../../assets/food2.jpg" ,
             "ingredients": [
                   {"Name":"Andalax","quantity":2},
                   {"Name":"Sub-Ex","quantity":3},
@@ -26,7 +26,7 @@
             "id": 3,
             "Name": "Namfix",
             "desciption": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
-            "image": "White-eye, pale",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Ronstring","quantity":9},
                   {"Name":"Regrant","quantity":10}
@@ -36,7 +36,7 @@
             "id": 4,
             "Name": "Cardify",
             "desciption": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
-            "image": "Mourning collared dove",
+            "image": "../../assets/food2.jpg" ,
             "ingredients": [
                   {"Name":"Viva","quantity":5},
                   {"Name":"Stringtough","quantity":6},
@@ -47,7 +47,7 @@
             "id": 5,
             "Name": "Vagram",
             "desciption": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
-            "image": "Red-necked phalarope",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Sub-Ex","quantity":3},
                   {"Name":"Ronstring","quantity":9}
@@ -58,7 +58,7 @@
             "id": 6,
             "Name": "Cardify",
             "desciption": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
-            "image": "Smith's bush squirrel",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Ronstring","quantity":9},
                   {"Name":"Regrant","quantity":10}
@@ -69,7 +69,7 @@
             "id": 7,
             "Name": "Trippledex",
             "desciption": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.",
-            "image": "Toddy cat",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Regrant","quantity":10}
             ]
@@ -78,7 +78,7 @@
             "id": 8,
             "Name": "Transcof",
             "desciption": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
-            "image": "Galah",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Prodder","quantity":8},
                   {"Name":"Regrant","quantity":10}
@@ -88,7 +88,7 @@
             "id": 9,
             "Name": "Home Ing",
             "desciption": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
-            "image": "Azara's zorro",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Regrant","quantity":10},
                   {"Name":"Prodder","quantity":8}
@@ -98,7 +98,7 @@
             "id": 10,
             "Name": "Toughjoyfax",
             "desciption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
-            "image": "Monkey, black spider",
+            "image": "../../assets/food2.jpg",
             "ingredients": [
                   {"Name":"Prodder","quantity":8},
                   {"Name":"Regrant","quantity":10},

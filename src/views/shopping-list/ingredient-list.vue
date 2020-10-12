@@ -3,7 +3,7 @@
     <div class="container mt-5">
       <div class="tbl-header">
             <h1>Ingredient</h1>
-            <button class="increase-font">
+            <button class="increase-font" @click="onClickAddGredient">
                 <font-awesome-icon icon="plus"/>
             </button>
       </div>
@@ -20,12 +20,12 @@
           <tr v-for="ingredient in getIngredient" :key="ingredient.id">
             <td>{{ingredient.id}}</td>
             <td>{{ingredient.Name}}</td>
-            <td>{{ingredient.Quantity}}</td>
+            <td>{{ingredient.quantity}}</td>
             <td class="actions">
-              <button>
+              <button @click="onEditGredient(ingredient)">
                 <font-awesome-icon icon="edit" />
               </button>
-              <button>
+              <button  @click="onClickDeleteGredient(ingredient)">
                 <font-awesome-icon icon="trash-alt" />
               </button>
             </td>
@@ -33,25 +33,50 @@
         </tbody>
       </table>
     </div>
+    <CreateIngredient v-if="getIsCreateIngredientActive"/>
+    <DeleteGredient v-if="getIsDeleteIngredientActive" :deletedIngredient="ingredient"/>
+    <EditIngredient v-if="getIsEditIngredientActive" :editedIngredient="ingredient"/>
+    
   </div>
 </template>
 
 <script>
 import {mapGetters,mapActions} from 'vuex';
-
+import CreateIngredient from './create-ingredient';
+import DeleteGredient from './delete-ingredient';
+import EditIngredient from './edit-ingredient';
 export default {
   name: "IngredientList",
   data:function(){
     return {
       ingredients:[],
+      ingredient:{
+        Name:'',
+        quantity:0,
+        id:0
+      }
     }
   },
+  components:{CreateIngredient,DeleteGredient,EditIngredient},
   methods:{
-    ...mapActions(["fetchIngredient"])
+    ...mapActions(["fetchIngredient","changeIsCreateIngredientActive","changeIsDeleteIngredientActive","changeIsEditIngredientActive"]),
+    onClickAddGredient(){
+      this.changeIsCreateIngredientActive(true)
+    },
+    onClickDeleteGredient(ingredientTemp){
+      this.ingredient=ingredientTemp;      
+      this.changeIsDeleteIngredientActive(true)
+    },
+    onEditGredient(ingredientTemp)
+    {
+      console.log(ingredientTemp);
+      this.ingredient=ingredientTemp;   
+      this.changeIsEditIngredientActive(true)
+    }
   },
-  computed:mapGetters(["getIngredient"]),
+  computed:mapGetters(["getIngredient","getIsCreateIngredientActive","getIsDeleteIngredientActive","getIsEditIngredientActive"]),
   created(){
-    this.fetchIngredient()
+    this.fetchIngredient();
   } 
 };
 </script>

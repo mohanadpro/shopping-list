@@ -1,5 +1,5 @@
 <template>
-  <div class="sign-in">
+  <div class="sign-up">
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-left">
@@ -53,7 +53,7 @@ import {mapGetters,mapActions} from 'vuex';
 import router from '../../router'
 
 export default {
-  name: "SignIn",
+  name: "SignUp",
   data:function(){
     return {
       user:{
@@ -80,7 +80,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.sign-in {
+.sign-up {
   margin-top: 10rem;
       .form{
   border:1px solid #CCC;
