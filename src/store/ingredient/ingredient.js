@@ -37,11 +37,9 @@ const actions={
       },
       async editIngredient({commit},editedIngredient)
       {
-            console.log(editedIngredient,'deon')
-            const updatedgredients=state.ingredients;
-            const index=updatedgredients.indexOf(x=>x.id==editedIngredient);
-            console.log(index,'ewfwe');
-            //state.updatedgredients[index].quantity=editedIngredient.quantity;
+            let updatedgredients=state.ingredients;
+            let index=updatedgredients.map(function(x) {return x.id; }).indexOf(editedIngredient.id);
+            updatedgredients[index].quantity=editedIngredient.quantity;
             commit('setIngredient',updatedgredients);
       },     
        async deleteGredientAction({commit},id){

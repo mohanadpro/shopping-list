@@ -22,7 +22,7 @@
             <td>{{ingredient.Name}}</td>
             <td>{{ingredient.quantity}}</td>
             <td class="actions">
-              <button @click="onEditGredient(ingredient)">
+              <button @click="onClickEditGredient(ingredient)">
                 <font-awesome-icon icon="edit" />
               </button>
               <button  @click="onClickDeleteGredient(ingredient)">
@@ -67,9 +67,8 @@ export default {
       this.ingredient=ingredientTemp;      
       this.changeIsDeleteIngredientActive(true)
     },
-    onEditGredient(ingredientTemp)
+    onClickEditGredient(ingredientTemp)
     {
-      console.log(ingredientTemp);
       this.ingredient=ingredientTemp;   
       this.changeIsEditIngredientActive(true)
     }

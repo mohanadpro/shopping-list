@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12 form ">
           <h3>Edit Ingredient</h3>
-          <form @submit="EditIngredientSubmit"> 
+          <form @submit.prevent="EditIngredientSubmit">
             <div class="form-group">
               <input
                 type="text"
@@ -22,7 +22,9 @@
                 v-model="ingredient.quantity"
               />
             </div>
-            <button type="submit" class="btn btn-success  btn-lg btn-block">Edit</button>
+            <button type="submit" class="btn btn-success  btn-lg btn-block">
+              Edit
+            </button>
           </form>
         </div>
       </div>
@@ -31,46 +33,48 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
+import { mapActions } from "vuex";
 // import router from '../../router'
 
 export default {
   name: "EditIngredient",
-  data:function(){
+  data: function() {
     return {
-      ingredient:{
-        id:0,
-        Name:'',
-        quantity:0
+      ingredient: {
+        id: 0,
+        Name: "",
+        quantity: 0
       }
+    };
+  },
+  props: ["editedIngredient"],
+  methods: {
+    ...mapActions([
+      "changeIsEditIngredientActive",
+      "createGredient",
+      "editIngredient"
+    ]),
+    EditIngredientSubmit() {
+      this.editIngredient(this.ingredient);
+      this.changeIsEditIngredientActive(false);
     }
   },
-  props:["editedIngredient"],
-  methods:{
-    ...mapActions(["changeIsCreateIngredientActive","createGredient","editIngredient"]),
-    EditIngredientSubmit(){
-      console.log(this.ingredient);
-      this.editIngredient(this.editedIngredient);
-      this.changeIsCreateIngredientActive(false);
-    }
-  },
-  beforeMount()
-  {
-    this.ingredient=this.editedIngredient;
+  beforeMount() {
+    this.ingredient = {Name:this.editedIngredient.Name,id:this.editedIngredient.id,quantity:this.editedIngredient.quantity};
   }
 };
 </script>
 <style lang="scss" scoped>
-.edit-ingredient{
-      position: absolute;
-      left:40%;
-      z-index:3;
-      top:0;
+.edit-ingredient {
+  position: absolute;
+  left: 40%;
+  z-index: 3;
+  top: 0;
   margin-top: 10rem;
-      .form{
-  border:1px solid #CCC;
-padding:2rem;
-background-color: #FFF;
-      }
+  .form {
+    border: 1px solid #ccc;
+    padding: 2rem;
+    background-color: #fff;
+  }
 }
 </style>

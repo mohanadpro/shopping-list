@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import SignIn from '../views/user-mangement/signin.vue';
 import SignUp from '../views/user-mangement/signup.vue';
-import Recipe from '../views/recipe/list-recipe.vue';
+import Recipe from '../views/recipe/list-recipe/list-recipe.vue';
 import IngredientList from '../views/shopping-list/ingredient-list.vue';
 
 Vue.use(VueRouter);
