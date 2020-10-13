@@ -21,9 +21,6 @@
                 v-model="recipe.description"
               />
             </div>
-            <div class="form-group">
-              <input type="file" @change="onFileImageChange" />
-            </div>
             <div class="ingredient">
               <div class="form-group">
                 <select
@@ -33,7 +30,7 @@
                 >
                   <option
                     v-for="checkedIngredient in checkedIngredients"
-                    :key="checkedIngredient.ingredient.id" 
+                    :key="checkedIngredient.ingredient.id" :value="checkedIngredient"
                   >
                     {{ checkedIngredient.ingredient.Name }}{{ checkedIngredient.ingredient.quantity }}</option
                   >
@@ -59,10 +56,11 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "EditRecipe",
+  name: "EditRecipeComp",
   data: function() {
     return {
       recipe: {
+        id:0,
         Name: "",
         description: "",
         image: "",
@@ -77,23 +75,21 @@ export default {
         },
         state: false,
       },
+      
     };
   },
   props: ["editedRecipe"],
   methods: {
-    ...mapActions(["fetchIngredient", "changeIsEditRecipeActive"]),
+    ...mapActions(["fetchIngredient", "changeIsEditRecipeActive","editRecipe"]),
     EditRecipe() {
-      this.changeIsEditIngredientActive(false);
-    },
-    onFileImageChange(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.recipe.image = files[0].name;
+       this.editRecipe(this.recipe);
+      this.changeIsEditRecipeActive(false);
     },
     onClickCancel() {
       this.changeIsEditRecipeActive(false);
     },
   },
+
   mounted() {
     this.fetchIngredient();
   for(let i=0;i<this.getIngredient.length;i++)
@@ -115,19 +111,12 @@ export default {
           break;
         }      
     }
-    // console.log(this.checkedIngredients);
-    // for (let i = 0; i < this.checkedIngredients.length; i++) {
-    //   // console.log('Hello');
-    //   // console.log(this.checkedIngredients);
-    //   console.log(
-    //     this.checkedIngredients[i].ingredient.Name +
-    //       "  " +
-    //       this.checkedIngredients[i].state
-    //   );
-    // }
   },
   beforeMount() {
-    this.recipe = this.editedRecipe;
+    this.recipe.Name = this.editedRecipe.Name;
+    this.recipe.id = this.editedRecipe.id;
+    this.recipe.description = this.editedRecipe.description;
+    console.log(this.recipe,"before mounted");
   },
   computed: mapGetters(["getIngredient"]),
 };

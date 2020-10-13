@@ -18,6 +18,7 @@ const getters = {
 
 const actions = {
   fetchRecipes({ commit }) {
+    
     commit("setRecipes", recipes);
   },
   async changeIsCreateRecipeActive({ commit }, newState) {
@@ -40,7 +41,7 @@ const actions = {
     let deletedRecipe = state.recipes;
     for (var i = deletedRecipe.length - 1; i >= 0; i--) {
       if (deletedRecipe[i].id === id) {
-        deletedRecipe.splice(i, 1);
+           deletedRecipe.splice(i, 1);
       }
     }
     commit("setRecipes", deletedRecipe);
@@ -65,13 +66,35 @@ const actions = {
       return x.id;
     })
     .indexOf(addedIngredientVa.recipeId);
-    console.log(index);
     commit("addIngredientToRecipe",{addedIngredientVa,index});
   },
+  async editRecipe({commit},editedRecipe)
+  {
+        
+        let updatedRecipes=state.recipes;
+        let index=updatedRecipes.map(function(x) {return x.id; }).indexOf(editedRecipe.id);
+        updatedRecipes[index].Name=editedRecipe.Name;
+        updatedRecipes[index].description=editedRecipe.description;
+        var counter=1;
+        updatedRecipes[index].ingredients.splice(0,updatedRecipes[index].ingredients.length);
+        while(updatedRecipes[index].ingredients.length<editedRecipe.ingredients.length)
+        {
+           let ingredient={Name:"",id:counter,quantity:0};
+          updatedRecipes[index].ingredients.push(ingredient);
+          counter++;
+        }
+        for(let i=0;i<editedRecipe.ingredients.length;i++)
+        {        
+          updatedRecipes[index].ingredients[i].id=editedRecipe.ingredients[i].ingredient.quantity;
+          updatedRecipes[index].ingredients[i].Name=editedRecipe.ingredients[i].ingredient.Name;
+          updatedRecipes[index].ingredients[i].quantity=editedRecipe.ingredients[i].ingredient.quantity;
+        }
+        commit('setIngredient',updatedRecipes);
+  }
 };
 
 const mutations = {
-  setRecipes: (state, recipes) => (state.recipes = recipes),
+  setRecipes: (state, recipes) => {(state.recipes = recipes);},
   setIsCreateRecipeActive: (state, newState) =>
     (state.isCreateRecipeActive = newState),
   setIsDeleteRecipeActive: (state, newState) =>
@@ -87,9 +110,8 @@ const mutations = {
   },
   addIngredientToRecipe:(state,{addedIngredientVa,index})=>
   {
-      console.log(addedIngredientVa.addedIngredient);
         state.recipes[index].ingredients.push(addedIngredientVa.addedIngredient);
-        console.log(state.recipes[index]);
+
   }
 };
 
