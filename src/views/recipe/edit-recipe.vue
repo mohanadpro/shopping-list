@@ -137,6 +137,7 @@ export default {
     this.recipe.image = this.editedRecipe.image;
     this.recipe.id = this.editedRecipe.id;
     this.recipe.description = this.editedRecipe.description;
+    this.recipe.ingredients=this.editedRecipe.ingredients;
   },
   computed: mapGetters(["getIngredient"])
 };

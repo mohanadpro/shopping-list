@@ -69,10 +69,10 @@ const actions = {
     commit("addIngredientToRecipe",{addedIngredientVa,index});
   },
   async editRecipe({commit},editedRecipe)
-  {
-        
+  {        
         let updatedRecipes=state.recipes;
         let index=updatedRecipes.map(function(x) {return x.id; }).indexOf(editedRecipe.id);
+        console.log(index);
         updatedRecipes[index].Name=editedRecipe.Name;
         updatedRecipes[index].description=editedRecipe.description;
         updatedRecipes[index].image=editedRecipe.image;
@@ -90,7 +90,7 @@ const actions = {
           updatedRecipes[index].ingredients[i].Name=editedRecipe.ingredients[i].ingredient.Name;
           updatedRecipes[index].ingredients[i].quantity=editedRecipe.ingredients[i].ingredient.quantity;
         }
-        commit('setIngredient',updatedRecipes);
+        commit('setRecipes',updatedRecipes);
   }
 };
 

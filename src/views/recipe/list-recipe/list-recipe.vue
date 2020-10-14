@@ -154,9 +154,9 @@ export default {
       this.changeIsDeleteRecipeActive(true);
     },
     onClickEditRecipe(recipeTemp) {
-      for (let i = 0; i < recipeTemp.ingredients.length; i++) {
-        this.editedRecipe.ingredients[i] = recipeTemp.ingredients[i];
-      }
+      // for (let i = 0; i < recipeTemp.ingredients.length; i++) {
+      //   this.editedRecipe.ingredients[i] = recipeTemp.ingredients[i];
+      // }
       this.editedRecipe = recipeTemp;
       this.changeIsEditRecipeActive(true);
     }
