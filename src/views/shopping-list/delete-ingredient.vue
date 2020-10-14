@@ -31,11 +31,6 @@ export default {
                   this.changeIsDeleteIngredientActive(false)
 
             }
-      },
-      mounted(){
-                  // console.log(this.deletedIngredient.id)
-                  // console.log(this.deletedIngredient.name)
-
       }
 }
 </script>

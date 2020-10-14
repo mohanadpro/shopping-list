@@ -137,7 +137,6 @@ export default {
     this.recipe.image = this.editedRecipe.image;
     this.recipe.id = this.editedRecipe.id;
     this.recipe.description = this.editedRecipe.description;
-    console.log(this.recipe, "before mounted");
   },
   computed: mapGetters(["getIngredient"])
 };

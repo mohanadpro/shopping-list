@@ -14,7 +14,6 @@ const getters={
 const actions={
       signIn({commit},userSignIn){
             var userfounded=users.find(x=>x.username==userSignIn.username&&x.password==userSignIn.password);
-            console.log(userfounded)
             commit('setUser',userfounded)
       },
       signUp({commit},newUser){

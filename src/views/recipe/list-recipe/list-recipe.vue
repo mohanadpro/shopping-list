@@ -23,7 +23,7 @@
                   />
                 </div>
                 <div class="card-gredient">
-                    <button @click="onClickAddIngredientToRecipe(recipe.recipe.id)" >
+                    <button @click="onClickAddIngredientToRecipe(recipe.recipe.id,recipe.recipe.ingredients)" >
                           <font-awesome-icon icon="plus" class="increase-font"/>
                     </button>
                   <ul
@@ -76,7 +76,7 @@
     <CreateRecipe v-if="getIsCreateRecipeActive" />
     <DeleteRecipe v-if="getIsDeleteRecipeActive" :recipe="recipe" />
     <EditRecipe v-if="getIsEditRecipeActive" :editedRecipe="editedRecipe" />
-    <AddIngredient v-if="getIsAddIngredientActive" :recipeId="recipe.id"/>
+    <AddIngredient v-if="getIsAddIngredientActive" :recipeId="recipe.id" :ingredientsInRecipe="ingredientsInRecipe"/>
     
   </div>
 </template>
@@ -94,11 +94,13 @@ export default {
       isForceUpdate:true,
       recipeWithState:{recipe:{id:0,Name:'',description:"",ingredients:[]},state:false},      
       recipeWithStates:[]
-      ,
+      ,    
       recipe: {
         Name: "",
         id: 0
       },
+      ingredientsInRecipe:[]
+      ,
       editedRecipe: {
         id: "",
         Name: "",
@@ -137,9 +139,10 @@ export default {
       this.isForceUpdate=true;
       this.recipeWithStates[index].state=!this.recipeWithStates[index].state;
     },
-    onClickAddIngredientToRecipe(id)
+    onClickAddIngredientToRecipe(id,ingredients)
     {
       this.recipe.id=id;
+      this.ingredientsInRecipe=ingredients;
       this.changeIsAddIngredientActive(true);
     },
     onClickAddRecipe() {
@@ -155,12 +158,10 @@ export default {
         this.editedRecipe.ingredients[i] = recipeTemp.ingredients[i];
       }
       this.editedRecipe = recipeTemp;
-      console.log(this.editedRecipe);
       this.changeIsEditRecipeActive(true);
     }
   },
   beforeMount(){    
-    console.log('done');
     for(let i=0;i<this.getRecipes.length;i++)
     {
       this.recipeWithState.recipe=this.getRecipes[i]
@@ -177,7 +178,6 @@ export default {
     "getIsAddIngredientActive"
   ]),
   updated(){
-    console.log(this.recipeWithStates)
     if(this.getRecipes.length!=this.recipeWithStates.length)
     {
       this.recipeWithStates=[];

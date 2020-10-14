@@ -4,8 +4,7 @@
       <div class="row">
         <div class="col-md-12 form ">
           <div class="form-header">
-            <h3><b>Create Recipe</b></h3>
-            
+            <h3><b>Create Recipe</b></h3>            
           </div>
           <form @submit.prevent="CreateRecipe">
             <div class="form-group">
