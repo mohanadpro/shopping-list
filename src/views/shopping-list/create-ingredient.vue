@@ -11,6 +11,7 @@
                 class="form-control text-center"
                 placeholder="Enter ingredient name"
                 v-model="ingredient.Name"
+                required
               />
             </div>
             <div class="form-group">
@@ -19,9 +20,11 @@
                 class="form-control text-center"
                 placeholder="Enter Quantity"
                 v-model="ingredient.quantity"
+                required
               />
             </div>
-            <button type="submit" class="btn btn-success  btn-lg btn-block">Create</button>
+            <button type="submit" class="btn btn-success float-left">Create</button>
+            <button type="button" class="btn btn-danger float-right" @click="onClickCancelCreation">Cancel</button>
           </form>
         </div>
       </div>
@@ -48,6 +51,10 @@ export default {
     ...mapActions(["changeIsCreateIngredientActive","createGredient"]),
     CreateIngredientSubmit(){
       this.createGredient(this.ingredient);
+      this.changeIsCreateIngredientActive(false);
+    },
+    onClickCancelCreation()
+    {
       this.changeIsCreateIngredientActive(false);
     }
   }

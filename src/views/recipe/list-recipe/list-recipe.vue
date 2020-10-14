@@ -103,6 +103,7 @@ export default {
         id: "",
         Name: "",
         description: "",
+        image:"",
         ingredients: []
       },
       deletedIngredient:{
@@ -154,6 +155,7 @@ export default {
         this.editedRecipe.ingredients[i] = recipeTemp.ingredients[i];
       }
       this.editedRecipe = recipeTemp;
+      console.log(this.editedRecipe);
       this.changeIsEditRecipeActive(true);
     }
   },

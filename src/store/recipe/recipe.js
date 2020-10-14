@@ -75,6 +75,7 @@ const actions = {
         let index=updatedRecipes.map(function(x) {return x.id; }).indexOf(editedRecipe.id);
         updatedRecipes[index].Name=editedRecipe.Name;
         updatedRecipes[index].description=editedRecipe.description;
+        updatedRecipes[index].image=editedRecipe.image;
         var counter=1;
         updatedRecipes[index].ingredients.splice(0,updatedRecipes[index].ingredients.length);
         while(updatedRecipes[index].ingredients.length<editedRecipe.ingredients.length)

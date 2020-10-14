@@ -11,6 +11,7 @@
                 class="form-control text-center"
                 placeholder="Enter recipe name"
                 v-model="recipe.Name"
+                required
               />
             </div>
             <div class="form-group">
@@ -19,10 +20,14 @@
                 placeholder="Please enter desciption"
                 row="5"
                 v-model="recipe.description"
+                required
               />
             </div>
             <div class="form-group">
-              <input type="file" @change="onFileImageChange"/>
+              <input type="text"  class="form-control" v-model="recipe.image"
+               placeholder="please enter image url"
+                required
+               />
             </div>
             <div class="ingredient">
             
@@ -41,7 +46,7 @@
                 <button type="submit" class="btn btn-success">
                   Create
                 </button>
-                <button class="btn btn-danger">
+                <button type="button" @click="onClickCancelCreation" class="btn btn-danger">
                   Cancel
                 </button>
             </div>
@@ -75,12 +80,9 @@ export default {
        this.createRecipe(this.recipe);
       this.changeIsCreateRecipeActive(false);
     },
-
-    onFileImageChange(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length)
-      return;
-      this.recipe.image=files[0].name;      
+    onClickCancelCreation()
+    {
+      this.changeIsCreateRecipeActive(false);
     }
   },
   mounted() {

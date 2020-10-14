@@ -11,6 +11,7 @@
                 class="form-control text-center"
                 placeholder="Enter recipe name"
                 v-model="recipe.Name"
+                required
               />
             </div>
             <div class="form-group">
@@ -19,7 +20,14 @@
                 placeholder="Please enter description"
                 row="5"
                 v-model="recipe.description"
+                required
               />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="recipe.image" placeholder="please enter updated url image"
+                required          
+              />
+              
             </div>
             <div class="ingredient">
               <div class="form-group">
@@ -114,6 +122,7 @@ export default {
   },
   beforeMount() {
     this.recipe.Name = this.editedRecipe.Name;
+    this.recipe.image = this.editedRecipe.image;
     this.recipe.id = this.editedRecipe.id;
     this.recipe.description = this.editedRecipe.description;
     console.log(this.recipe,"before mounted");

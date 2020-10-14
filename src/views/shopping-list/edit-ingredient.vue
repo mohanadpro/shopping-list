@@ -20,6 +20,7 @@
                 class="form-control text-center"
                 placeholder="Updated Quantity"
                 v-model="ingredient.quantity"
+                required
               />
             </div>
             <button type="submit" class="btn btn-success  btn-lg btn-block">
