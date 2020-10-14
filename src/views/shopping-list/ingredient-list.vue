@@ -1,5 +1,8 @@
 <template>
   <div class="ingrendient-list">
+          <div class="header">
+        <router-link to="/recipe">Recipes</router-link>
+      </div>
     <div class="container mt-5">
       <div class="tbl-header">
             <h1>Ingredient</h1>
@@ -81,6 +84,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ingrendient-list {
+  .header{
+      height: 100px;
+      background-color: #0b1341;
+
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   .tbl-header{
     display: flex;
     justify-content: space-between;

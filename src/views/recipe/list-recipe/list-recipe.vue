@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="ingrendient-list" v-if="isForceUpdate">
+      <div class="header">
+        <router-link to="/shopping-list">Shopping List</router-link>
+      </div>
       <div class="container mt-5">
         <button class="float-right increase-font" @click="onClickAddRecipe">
           <font-awesome-icon icon="plus" />
@@ -15,8 +18,8 @@
                 <div class="card-image">
                   <img
                     class="card-img-top"
-                    src="../../../assets/food2.jpg"
-                    alt="Card image cap"
+                    :src="recipe.recipe.image"
+                    alt="recipe"
                   />
                 </div>
                 <div class="card-gredient">

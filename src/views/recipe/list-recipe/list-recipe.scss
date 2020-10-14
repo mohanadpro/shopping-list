@@ -1,4 +1,12 @@
 .ingrendient-list {
+    .header{
+      background-color: #0b1341;
+      height: 100px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
       .card {
         margin-bottom: 1rem;
         perspective: 600px;
