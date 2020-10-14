@@ -63,7 +63,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .add-ingredient {
-  position: absolute;
+  position: fixed;
   left: 40%;
   z-index: 3;
   top: 0;

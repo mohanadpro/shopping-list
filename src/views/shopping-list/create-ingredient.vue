@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 form ">
-          <h3>Create Ingredient</h3>
+          <div class="form-header">
+          <h3><b>Create Ingredient</b></h3>
+          </div>
           <form @submit="CreateIngredientSubmit"> 
             <div class="form-group">
               <input
@@ -62,7 +64,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .create-ingredient{
-      position: absolute;
+      position: fixed;
       left:40%;
       z-index:3;
       top:0;

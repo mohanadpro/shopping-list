@@ -45,7 +45,7 @@ export default {
       text-align:left;
       width:50%;
       padding:20px;
-      position:absolute;
+      position:fixed;
       top:200px;
       left:30%;
       .actions{

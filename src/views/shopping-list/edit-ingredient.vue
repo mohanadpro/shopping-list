@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 form ">
-          <h3>Edit Ingredient</h3>
+          <div class="form-header">
+          <h3><b>Edit Ingredient</b></h3>
+          </div>
           <form @submit.prevent="EditIngredientSubmit">
             <div class="form-group">
               <input
@@ -23,8 +25,11 @@
                 required
               />
             </div>
-            <button type="submit" class="btn btn-success  btn-lg btn-block">
+            <button type="submit" class="btn btn-success float-left">
               Edit
+            </button>
+            <button type="button" class="btn btn-danger float-right" @click="onClickCancelEdit">
+              Cancel
             </button>
           </form>
         </div>
@@ -58,6 +63,9 @@ export default {
     EditIngredientSubmit() {
       this.editIngredient(this.ingredient);
       this.changeIsEditIngredientActive(false);
+    },
+    onClickCancelEdit(){
+      this.changeIsEditIngredientActive(false);
     }
   },
   beforeMount() {
@@ -67,7 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .edit-ingredient {
-  position: absolute;
+  position: fixed;
   left: 40%;
   z-index: 3;
   top: 0;

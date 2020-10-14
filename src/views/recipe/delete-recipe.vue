@@ -45,7 +45,7 @@ export default {
       align-items: center;
       height:200px;
       padding:20px;
-      position:absolute;
+      position:fixed;
       top:200px;
       left:30%;
       .actions{

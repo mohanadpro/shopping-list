@@ -27,7 +27,7 @@
                           <font-awesome-icon icon="plus" class="increase-font"/>
                     </button>
                   <ul
-                    class="list-group list-group-flush"
+                    class="list-group "
                     v-for="ingredient in recipe.recipe.ingredients"
                     :value="ingredient"
                     :key="ingredient.id"

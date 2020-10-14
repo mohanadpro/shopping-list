@@ -3,7 +3,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 form ">
-          <h3>Create Recipe</h3>
+          <div class="form-header">
+            <h3><b>Create Recipe</b></h3>
+            
+          </div>
           <form @submit.prevent="CreateRecipe">
             <div class="form-group">
               <input
@@ -93,8 +96,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .create-recipe {
-  position: absolute;
-  left: 40%;
+    width:30%;
+  position: fixed;
+  left: 35%;
   z-index: 3;
   top: 0;
   margin-top: 10rem;

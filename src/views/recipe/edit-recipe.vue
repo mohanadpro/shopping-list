@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 form ">
-          <h3>Edit Recipe</h3>
+          <div class="form-header">
+            <h3><b>Edit Recipe</b></h3>
+          </div>
           <form @submit.prevent="EditRecipe">
             <div class="form-group">
               <input
@@ -24,10 +26,13 @@
               />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" v-model="recipe.image" placeholder="please enter updated url image"
-                required          
+              <input
+                type="text"
+                class="form-control"
+                v-model="recipe.image"
+                placeholder="please enter updated url image"
+                required
               />
-              
             </div>
             <div class="ingredient">
               <div class="form-group">
@@ -38,9 +43,11 @@
                 >
                   <option
                     v-for="checkedIngredient in checkedIngredients"
-                    :key="checkedIngredient.ingredient.id" :value="checkedIngredient"
+                    :key="checkedIngredient.ingredient.id"
+                    :value="checkedIngredient"
                   >
-                    {{ checkedIngredient.ingredient.Name }}{{ checkedIngredient.ingredient.quantity }}</option
+                    {{ checkedIngredient.ingredient.Name
+                    }}{{ checkedIngredient.ingredient.quantity }}</option
                   >
                 </select>
               </div>
@@ -68,56 +75,61 @@ export default {
   data: function() {
     return {
       recipe: {
-        id:0,
+        id: 0,
         Name: "",
         description: "",
         image: "",
-        ingredients: [],
+        ingredients: []
       },
       checkedIngredients: [],
       ingredientWithState: {
         ingredient: {
-          id:0,
+          id: 0,
           Name: "",
-          quantity: 0,
+          quantity: 0
         },
-        state: false,
-      },
-      
+        state: false
+      }
     };
   },
   props: ["editedRecipe"],
   methods: {
-    ...mapActions(["fetchIngredient", "changeIsEditRecipeActive","editRecipe"]),
+    ...mapActions([
+      "fetchIngredient",
+      "changeIsEditRecipeActive",
+      "editRecipe"
+    ]),
     EditRecipe() {
-       this.editRecipe(this.recipe);
+      this.editRecipe(this.recipe);
       this.changeIsEditRecipeActive(false);
     },
     onClickCancel() {
       this.changeIsEditRecipeActive(false);
-    },
+    }
   },
 
   mounted() {
     this.fetchIngredient();
-  for(let i=0;i<this.getIngredient.length;i++)
-  {
-          this.ingredientWithState.ingredient={Name:this.getIngredient[i].Name,
-          quantity:this.getIngredient[i].quantity,id:this.getIngredient[i].id}
-          this.ingredientWithState.state = false;
-          this.checkedIngredients.push(this.ingredientWithState);
-          this.ingredientWithState={}
-  }
+    for (let i = 0; i < this.getIngredient.length; i++) {
+      this.ingredientWithState.ingredient = {
+        Name: this.getIngredient[i].Name,
+        quantity: this.getIngredient[i].quantity,
+        id: this.getIngredient[i].id
+      };
+      this.ingredientWithState.state = false;
+      this.checkedIngredients.push(this.ingredientWithState);
+      this.ingredientWithState = {};
+    }
 
     for (let i = 0; i < this.getIngredient.length; i++) {
-      for (let j = 0; j < this.recipe.ingredients.length; j++) 
+      for (let j = 0; j < this.recipe.ingredients.length; j++)
         if (this.getIngredient[i].id == this.recipe.ingredients[j].id) {
           this.ingredientWithState.ingredient = this.getIngredient[i];
           this.ingredientWithState.state = true;
-          this.checkedIngredients[i]=this.ingredientWithState;
-          this.ingredientWithState={}
+          this.checkedIngredients[i] = this.ingredientWithState;
+          this.ingredientWithState = {};
           break;
-        }      
+        }
     }
   },
   beforeMount() {
@@ -125,15 +137,16 @@ export default {
     this.recipe.image = this.editedRecipe.image;
     this.recipe.id = this.editedRecipe.id;
     this.recipe.description = this.editedRecipe.description;
-    console.log(this.recipe,"before mounted");
+    console.log(this.recipe, "before mounted");
   },
-  computed: mapGetters(["getIngredient"]),
+  computed: mapGetters(["getIngredient"])
 };
 </script>
 <style lang="scss" scoped>
 .edit-recipe {
-  position: absolute;
-  left: 40%;
+  width:30%;
+  position: fixed;
+  left: 35%;
   z-index: 3;
   top: 0;
   margin-top: 10rem;
