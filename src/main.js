@@ -10,7 +10,6 @@ import "./scss/index.scss";
 import "./fontawesome/font-awesome-config";
 
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   store,

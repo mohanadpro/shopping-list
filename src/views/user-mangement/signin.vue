@@ -69,7 +69,7 @@ export default {
     ...mapActions(["signIn"]),
     SignIn(){
       this.signIn(this.user);
-      if(this.getUser)
+      if(this.getUser.isAuthenticated)
       {
         router.push("/shopping-list")
       }

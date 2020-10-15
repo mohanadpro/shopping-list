@@ -6,10 +6,12 @@ import user from "./user/user";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+ const store=new Vuex.Store({
   modules:{
     ingredient,
     recipe,
     user
   }
 });
+
+export default store;
