@@ -7,16 +7,7 @@ import IngredientList from "../views/shopping-list/ingredient-list.vue";
 import CreateFrom from '../views/recipe/create-form.vue';
 
 Vue.use(VueRouter);
-Vue.mixin({
-  beforeRouteLeave (to, from, next) {
-    const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
-    if (answer) {
-      next()
-    } else {
-      next(false)
-    }
-  }
-})
+
 const routes = [
   {
     path: "/",
